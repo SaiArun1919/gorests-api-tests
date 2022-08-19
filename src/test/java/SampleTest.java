@@ -1,3 +1,4 @@
+import io.restassured.http.ContentType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,5 +14,29 @@ public class SampleTest {
                 .then()
                   .statusCode(200)
                   .log().body();
+    }
+
+    @Test
+    public void createUsers(){
+        //Arrange
+        //Act
+        //Assert
+
+        given()
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .header("Authorization","Bearer a59b10684997179e9237348c230bb1e5c6ba7be44e030dea07f2f1e8cbe4e692")
+                .body("{\n" +
+                        "    \"name\": \"Tenali Ramakrishna\",\n" +
+                        "    \"gender\": \"male\",\n" +
+                        "    \"email\": \"tenali.ramakri1918@gmail.com\",\n" +
+                        "    \"status\": \"active\"\n" +
+                        "}")
+                .when()
+                  .post("https://gorest.co.in/public/v2/users")
+                .then()
+                 .log().body()
+                 .statusCode(201);
+
     }
 }
