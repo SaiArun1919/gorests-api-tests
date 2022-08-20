@@ -1,4 +1,3 @@
-import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
