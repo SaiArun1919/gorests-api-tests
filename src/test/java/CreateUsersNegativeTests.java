@@ -16,11 +16,8 @@ public class CreateUsersNegativeTests {
     @Test
     public void shouldNotAllowCreateUserForInvalidEmail(){
         //Arrange
-        String name = "Tenali Ramakrishna";
-        String gender = "male";
-        String email = "Tenali.Ramakrishnagmail.com";
-        String status = "active";
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, gender, email, status);
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name("Tenali Ramakrishna").gender("male")
+                .email("Tenali.Ramakrishnagmail.com").status("active").build();
 
         //Act
         usersClient.createUser(requestBody)
